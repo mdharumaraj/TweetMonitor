@@ -15,6 +15,7 @@ namespace TweetMonitorLib.AlertDispatchers
         public void Initialize(string filename)
         {
             Stream stream = File.Open(filename, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read);
+            stream.SetLength(0);
             writer = new StreamWriter(stream);
         }
 

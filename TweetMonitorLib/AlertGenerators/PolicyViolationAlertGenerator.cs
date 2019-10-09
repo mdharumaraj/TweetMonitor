@@ -39,13 +39,13 @@ namespace TweetMonitorLib.AlertGenerators
 
             for (int i = 0; i < policyValidations.Count; i++)
             {
-                if (policyValidations[i].TweetData.Timestamp > timeWindowStart)
+                if (policyValidations[i].TweetData.Timestamp >= timeWindowStart)
                 {
                     violationCount++;
                 }
             }
 
-            if (violationCount > ViolationCountThreshold)
+            if (violationCount >= ViolationCountThreshold)
             {
                 alertDispatchCallback(validation);
             }

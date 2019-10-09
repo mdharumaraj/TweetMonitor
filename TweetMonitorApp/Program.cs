@@ -88,7 +88,8 @@ namespace TweetMonitorApp
 
         private static IAlertGenerator GetAlertGenerator()
         {
-            PolicyViolationAlertGenerator alertGenerator = new PolicyViolationAlertGenerator();
+            PolicyViolationAlertGenerator alertGenerator =
+                new PolicyViolationAlertGenerator() { MonitoredTimeWindow = TimeSpan.FromMinutes(5), ViolationCountThreshold = 3 };
             return alertGenerator;
         }
 
